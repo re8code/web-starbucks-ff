@@ -1,3 +1,4 @@
+// Sub-menu -------------------------------------------------------------------
 const searchEl = document.querySelector('.search');
 const searchInputEl = searchEl.querySelector('input');
 
@@ -15,6 +16,7 @@ searchInputEl.addEventListener('blur', function () {
   searchInputEl.setAttribute('placeholder', '');
 });
 
+// Visual ---------------------------------------------------------------------
 const badgesEl = document.querySelector('header .badges');
 window.addEventListener('scroll', _.throttle(function () {
   if (window.scrollY > 500) {
@@ -33,3 +35,12 @@ window.addEventListener('scroll', _.throttle(function () {
   }
 }, 300));
 // _.throttle(handler pointer, milli-seconds);
+
+// Title fade-in --------------------------------------------------------------
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function (fadeEl, index) {
+  gsap.to(fadeEl, 1, {
+    delay: (index+1) * .7,
+    opacity: 1
+  });
+});
